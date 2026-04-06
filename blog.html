@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Ishan Choudhury</title>
+    <link rel="icon" type="image/x-icon" href="images/icon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="inner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="noise"     aria-hidden="true"></div>
+
+    <!-- ── Nav ── -->
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">IC</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Full Bio</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="nav-progress" id="navProgress"></div>
+    </nav>
+
+    <!-- ── Inner hero ── -->
+    <div class="inner-hero">
+        <div class="hero-bg-grid" aria-hidden="true"></div>
+        <div class="hero-corner tl" aria-hidden="true"></div>
+        <div class="hero-corner tr" aria-hidden="true"></div>
+        <div class="hero-corner bl" aria-hidden="true"></div>
+        <div class="hero-corner br" aria-hidden="true"></div>
+        <div class="section-label">// DEVLOG.dir</div>
+        <h1>Blog</h1>
+        <p>Dev logs, design thoughts, and game industry write-ups.</p>
+        <div class="inner-hero-line"></div>
+    </div>
+
+    <!-- ── Content ── -->
+    <div class="page-content">
+
+        <!-- Filter tabs -->
+        <div class="blog-filters reveal" id="blogFilters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <!-- Tags are populated dynamically from posts -->
+        </div>
+
+        <!-- Blog card grid — populated from POSTS registry below -->
+        <div class="blog-grid reveal" id="blogGrid">
+            <!-- cards injected by JS -->
+        </div>
+
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-logo">IC</span>
+            <p>&copy; 2025 Ishan Choudhury. All Rights Reserved.</p>
+            <span class="footer-cat">🐈</span>
+        </div>
+    </footer>
+
+    <style>
+    /* Filter buttons */
+    .blog-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 32px;
+    }
+    .filter-btn {
+        font-family: monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 6px 16px;
+        border: 1px solid rgba(201,147,58,0.25);
+        border-radius: 2px;
+        background: transparent;
+        color: var(--cream-dim);
+        cursor: pointer;
+        transition: all 0.25s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+        border-color: var(--gold);
+        color: var(--gold);
+        background: rgba(201,147,58,0.08);
+    }
+    .nav-links a.active { color: var(--gold); }
+    </style>
+
+    <script>
+    /* ================================================================
+       POSTS REGISTRY
+       ──────────────────────────────────────────────────────────────
+       To add a blog post:
+         1. Duplicate blog-post-template.html → posts/your-slug.html
+         2. Fill in the content
+         3. Add an entry to the POSTS array below
+
+       Fields:
+         slug    – filename in posts/ folder (no .html)
+         title   – card & page title
+         date    – display date string
+         tag     – category label (used for filter buttons)
+         excerpt – 1–2 sentence summary shown on card
+    ================================================================ */
+    const POSTS = [
+        // ── ADD YOUR POSTS HERE ─────────────────────────────────────
+        // Example (uncomment and edit):
+        // {
+        //     slug:    "procedural-terrain-devlog",
+        //     title:   "Building a Procedural Terrain Plugin for UE5",
+        //     date:    "March 2025",
+        //     tag:     "Devlog",
+        //     excerpt: "A breakdown of how I built an Unreal Engine 5 plugin that generates playable terrain from noise functions, and the lessons learned along the way."
+        // },
+        // {
+        //     slug:    "game-feel-101",
+        //     title:   "Game Feel 101: Making Actions Satisfying",
+        //     date:    "January 2025",
+        //     tag:     "Design",
+        //     excerpt: "Juice, screen shake, and sound — the invisible craft behind why some games feel incredible and others feel flat."
+        // },
+    ];
+
+    /* ── Render ──────────────────────────────────────────────────── */
+    const grid    = document.getElementById('blogGrid');
+    const filters = document.getElementById('blogFilters');
+
+    if (POSTS.length === 0) {
+        grid.innerHTML = `
+            <div class="blog-empty">
+                <h3>No posts yet</h3>
+                <p>Check back soon — devlogs and design write-ups are on the way.</p>
+            </div>`;
+    } else {
+        // Collect unique tags
+        const tags = [...new Set(POSTS.map(p => p.tag))];
+        tags.forEach(tag => {
+            const btn = document.createElement('button');
+            btn.className = 'filter-btn';
+            btn.dataset.filter = tag;
+            btn.textContent = tag;
+            filters.appendChild(btn);
+        });
+
+        // Render cards
+        function renderCards(filter) {
+            const visible = filter === 'all' ? POSTS : POSTS.filter(p => p.tag === filter);
+            grid.innerHTML = visible.map(p => `
+                <a class="blog-card reveal" href="posts/${p.slug}.html">
+                    <div class="blog-meta">
+                        <span>${p.date}</span>
+                        <span class="blog-tag">${p.tag}</span>
+                    </div>
+                    <h3>${p.title}</h3>
+                    <p>${p.excerpt}</p>
+                    <span class="blog-read-more">Read Post</span>
+                </a>
+            `).join('');
+            // Re-observe new cards
+            document.querySelectorAll('.blog-card.reveal').forEach(el => obs.observe(el));
+        }
+
+        // Filter buttons
+        filters.addEventListener('click', e => {
+            const btn = e.target.closest('.filter-btn');
+            if (!btn) return;
+            filters.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderCards(btn.dataset.filter);
+        });
+
+        renderCards('all');
+    }
+
+    /* ── Scroll / reveal / oneko ─────────────────────────────────── */
+    window.addEventListener('scroll', () => {
+        const p = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+        document.getElementById('navProgress').style.width = p + '%';
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+    });
+    const obs = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && x.target.classList.add('visible')), { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    (function oneko() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const el = document.createElement('div');
+        let nx=32,ny=32,mx=0,my=0,fc=0,it=0,ia=null,iaf=0;
+        const spd=10, ss={idle:[[-3,-3]],alert:[[-7,-3]],scratchSelf:[[-5,0],[-6,0],[-7,0]],
+            scratchWallN:[[0,0],[0,-1]],scratchWallS:[[-7,-1],[-6,-2]],scratchWallE:[[-2,-2],[-2,-3]],scratchWallW:[[-4,0],[-4,-1]],
+            tired:[[-3,-2]],sleeping:[[-2,0],[-2,-1]],N:[[-1,-2],[-1,-3]],NE:[[0,-2],[0,-3]],
+            E:[[-3,0],[-3,-1]],SE:[[-5,-1],[-5,-2]],S:[[-6,-3],[-7,-2]],SW:[[-5,-3],[-6,-1]],W:[[-4,-2],[-4,-3]],NW:[[-1,0],[-1,-1]]};
+        Object.assign(el.style,{width:'32px',height:'32px',position:'fixed',pointerEvents:'none',imageRendering:'pixelated',
+            backgroundImage:'url("https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif")',
+            left:(nx-16)+'px',top:(ny-16)+'px',zIndex:'2147483647'});
+        document.body.appendChild(el);
+        document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+        function sp(n,f){const s=ss[n][f%ss[n].length];el.style.backgroundPosition=`${s[0]*32}px ${s[1]*32}px`;}
+        function ri(){ia=null;iaf=0;}
+        function idle(){it++;if(it>10&&Math.floor(Math.random()*200)===0&&!ia){let a=['sleeping','scratchSelf'];
+            if(nx<32)a.push('scratchWallW');if(ny<32)a.push('scratchWallN');
+            if(nx>window.innerWidth-32)a.push('scratchWallE');if(ny>window.innerHeight-32)a.push('scratchWallS');
+            ia=a[Math.floor(Math.random()*a.length)];}
+            switch(ia){case'sleeping':if(iaf<8){sp('tired',0);break;}sp('sleeping',Math.floor(iaf/4));if(iaf>192)ri();break;
+            case'scratchWallN':case'scratchWallS':case'scratchWallE':case'scratchWallW':case'scratchSelf':
+                sp(ia,iaf);if(iaf>9)ri();break;default:sp('idle',0);return;}iaf++;}
+        function frame(){fc++;const dx=nx-mx,dy=ny-my,d=Math.sqrt(dx**2+dy**2);
+            if(d<spd||d<48){idle();return;}ia=null;iaf=0;
+            if(it>1){sp('alert',0);it=Math.min(it,7)-1;return;}
+            let dir='';dir+=dy/d>0.5?'N':'';dir+=dy/d<-0.5?'S':'';dir+=dx/d>0.5?'W':'';dir+=dx/d<-0.5?'E':'';
+            sp(dir,fc);nx-=(dx/d)*spd;ny-=(dy/d)*spd;
+            nx=Math.min(Math.max(16,nx),window.innerWidth-16);ny=Math.min(Math.max(16,ny),window.innerHeight-16);
+            el.style.left=(nx-16)+'px';el.style.top=(ny-16)+'px';}
+        let lf;function loop(ts){if(!el.isConnected)return;if(!lf)lf=ts;if(ts-lf>100){lf=ts;frame();}requestAnimationFrame(loop);}
+        requestAnimationFrame(loop);
+    })();
+    </script>
+</body>
+</html>

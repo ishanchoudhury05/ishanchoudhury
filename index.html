@@ -3,272 +3,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ishan's Portfolio Webpage</title>
+    <title>Ishan Choudhury — Game Developer</title>
     <link rel="icon" type="image/x-icon" href="images/icon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
+
+    <!-- CRT scanline overlay -->
+    <div class="scanlines" aria-hidden="true"></div>
+    <!-- Pixel noise overlay -->
+    <div class="noise" aria-hidden="true"></div>
+
+    <!-- ===== NAV ===== -->
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">IC</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="about.html">Full Bio</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-progress" id="navProgress"></div>
+    </nav>
+
+    <!-- ===== HEADER ===== -->
+    <header id="hero">
+        <div class="hero-bg-grid" aria-hidden="true"></div>
+        <div class="hero-corner tl" aria-hidden="true"></div>
+        <div class="hero-corner tr" aria-hidden="true"></div>
+        <div class="hero-corner bl" aria-hidden="true"></div>
+        <div class="hero-corner br" aria-hidden="true"></div>
+
         <img src="images/pfp.jpg" alt="Ishan Choudhury" class="profile-pic">
+
         <div class="header-text">
-            <h1>Ishan Choudhury</h1>
-            <p>Game Developer & Programmer</p>
+            <div class="glitch-wrapper">
+                <h1 class="glitch" data-text="Ishan Choudhury">Ishan Choudhury</h1>
+            </div>
+            <p class="hero-subtitle">
+                <span class="typewriter" id="typewriter"></span><span class="cursor-blink">&#9612;</span>
+            </p>
+            <div class="hero-badges">
+                <span class="badge">Unity</span>
+                <span class="badge">Unreal Engine 5</span>
+                <span class="badge">C#</span>
+                <span class="badge">C++</span>
+                <span class="badge">Blender</span>
+            </div>
         </div>
     </header>
-    
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I’m a game developer with a deep love for all types of games, especially the classics from the early 2000s, and I’m passionate about bringing my ideas to life through research, analysis and implementation.</p>
-    </section>
 
-    <!-- YouTube Embed Section -->
-    <section id="youtube-embed">
-        <div class="video-container">
-            <iframe 
-                width="560" 
-                height="315" 
-                src="https://www.youtube.com/embed/g_eGhHDJSGY" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="reveal">
+        <div class="section-label">// ABOUT_ME.txt</div>
+        <h2>About Me</h2>
+        <p class="about-text">
+            I'm a game developer with a deep love for all types of games, especially the classics from the early 2000s, and I'm passionate about bringing my ideas to life through research, analysis and implementation.
+        </p>
+
+        <!-- Showreel -->
+        <div class="video-container showreel">
+            <div class="video-chrome">
+                <span class="chrome-dot red"></span>
+                <span class="chrome-dot yellow"></span>
+                <span class="chrome-dot green"></span>
+                <span class="chrome-label">SHOWREEL.mp4</span>
+            </div>
+            <iframe
+                src="https://www.youtube.com/embed/g_eGhHDJSGY"
+                title="Showreel"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
             </iframe>
         </div>
     </section>
-    
+
+    <!-- ===== PROJECTS ===== -->
     <section id="projects">
-        <h2>Projects</h2>
+        <div class="section-label">// PROJECTS.dir</div>
+        <h2 class="reveal">Projects</h2>
+
         <div class="projects-grid">
 
             <!-- Catpuccino -->
-            <div class="project">
-                <h3>Catpuccino</h3>
-                <p>Mobile Isometric Cozy Management Game</p>
+            <div class="project reveal">
+                <div class="project-header">
+                    <span class="project-number">01</span>
+                    <div>
+                        <h3>Catpuccino</h3>
+                        <p class="project-type">Mobile Isometric Cozy Management Game</p>
+                    </div>
+                </div>
                 <div class="video-container">
-                    <iframe width="560"
-                            height="315"
-                            src="https://www.youtube.com/embed/sv4ZNSi8Yf4"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                            loading="lazy">
-                    </iframe>
+                    <iframe src="https://www.youtube.com/embed/sv4ZNSi8Yf4" title="Catpuccino" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="additional-info">
-                    <p>Group Project, Showcasing a game prototype we had made for the "Final Year Group Project" module. Admittedly similar to Stay Awhile but everyone loved the idea of a cat cafe especially since Frontier had given us a brief for a mobile management game</p>
-                    <p>What this game demonstrates:</p>
-                    <ul>
-                        <li>Programming Competency</li>
-                        <li>C# Skills</li>
-                        <li>Rapid Development</li>
-                        <li>Sound Design</li>
-                    </ul>
-                    <p>Technologies used: Unity, C#, FL Studio</p>
-                    <a href="https://drive.proton.me/urls/4767PTHQ44#vymaX5DbfoB4" target="_blank" rel="noopener noreferrer">Download</a>
+                    <p>Group Project for the "Final Year Group Project" module — a cat cafe management game made for a Frontier mobile brief. Everyone adored the concept.</p>
+                    <div class="tags">
+                        <span class="tag">Programming</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Rapid Dev</span>
+                        <span class="tag">Sound Design</span>
+                    </div>
+                    <p class="tech-line"><strong>Stack:</strong> Unity &middot; C# &middot; FL Studio</p>
+                    <a href="https://drive.proton.me/urls/4767PTHQ44#vymaX5DbfoB4" class="dl-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Download
+                    </a>
                 </div>
             </div>
 
             <!-- Stay Awhile -->
-            <div class="project">
-                <h3>Stay Awhile</h3>
-                <p>Top-Down Cozy Management Game</p>
+            <div class="project reveal">
+                <div class="project-header">
+                    <span class="project-number">02</span>
+                    <div>
+                        <h3>Stay Awhile</h3>
+                        <p class="project-type">Top-Down Cozy Management Game</p>
+                    </div>
+                </div>
                 <div class="video-container">
-                    <iframe width="560"
-                            height="315"
-                            src="https://www.youtube.com/embed/KBRKt0166K4"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                            loading="lazy">
-                    </iframe>
+                    <iframe src="https://www.youtube.com/embed/KBRKt0166K4" title="Stay Awhile" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="additional-info">
-                    <p>Solo Project, Showcasing a game prototype I had made as a side project in Unity during the break between 2nd and 3rd year of University. It's a cute cozy style management game where you play as a cat barista</p>
-                    <p>What this game demonstrates:</p>
-                    <ul>
-                        <li>Programming Competency</li>
-                        <li>C# Skills</li>
-                        <li>3D Modelling</li>
-                        <li>Sound Design</li>
-                    </ul>
-                    <p>Technologies used: Unity, C#, Blender, FL Studio</p>
-                    <a href="https://drive.proton.me/urls/KJM46200B0#dd6kmou6Ekp2" target="_blank" rel="noopener noreferrer">Download</a>
+                    <p>Solo side project built between 2nd and 3rd year. A cute cozy management game where you play as a cat barista.</p>
+                    <div class="tags">
+                        <span class="tag">Programming</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">3D Modelling</span>
+                        <span class="tag">Sound Design</span>
+                    </div>
+                    <p class="tech-line"><strong>Stack:</strong> Unity &middot; C# &middot; Blender &middot; FL Studio</p>
+                    <a href="https://drive.proton.me/urls/KJM46200B0#dd6kmou6Ekp2" class="dl-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Download
+                    </a>
                 </div>
             </div>
 
-            <!-- Procedural Terrain Generation Plugin -->
-            <div class="project">
-                <h3>Procedural Terrain Generation Plugin</h3>
-                <p>Unreal Engine 5.4.4 Plugin</p>
+            <!-- Procedural Terrain -->
+            <div class="project reveal">
+                <div class="project-header">
+                    <span class="project-number">03</span>
+                    <div>
+                        <h3>Procedural Terrain Generation Plugin</h3>
+                        <p class="project-type">Unreal Engine 5.4.4 Plugin</p>
+                    </div>
+                </div>
                 <div class="video-container">
-                    <iframe width="560"
-                            height="315"
-                            src="https://www.youtube.com/embed/OvCG0BFcVFg"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                            loading="lazy">
-                    </iframe>
+                    <iframe src="https://www.youtube.com/embed/OvCG0BFcVFg" title="Procedural Terrain" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="additional-info">
-                    <p>Solo Project, Showcasing a plugin tool that can procedurally generate terrain with adjustable parameters and additionally populate the terrain with 3D</p>
-                    <p>What this game demonstrates:</p>
-                    <ul>
-                        <li>Programming Competency</li>
-                        <li>Unreal Engine 5 Back-end Knowledge</li>
-                        <li>Rapid Development</li>
-                    </ul>
-                    <p>Technologies used: Unreal Engine, C++</p>
-                    <a href="https://drive.proton.me/urls/KJM46200B0#dd6kmou6Ekp2" target="_blank" rel="noopener noreferrer">Download</a>
+                    <p>Solo project — a plugin tool that procedurally generates terrain with adjustable parameters and populates it with 3D assets.</p>
+                    <div class="tags">
+                        <span class="tag">Programming</span>
+                        <span class="tag">UE5 Back-end</span>
+                        <span class="tag">Rapid Dev</span>
+                    </div>
+                    <p class="tech-line"><strong>Stack:</strong> Unreal Engine &middot; C++</p>
+                    <a href="https://drive.proton.me/urls/KJM46200B0#dd6kmou6Ekp2" class="dl-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Download
+                    </a>
                 </div>
             </div>
 
             <!-- Beyond the Barrel -->
-            <div class="project">
-                <h3>Beyond the Barrel</h3>
-                <p>Psychological Thriller, First Person Shooter</p>
+            <div class="project reveal featured">
+                <div class="featured-ribbon">&#9733; NOMINATED</div>
+                <div class="project-header">
+                    <span class="project-number">04</span>
+                    <div>
+                        <h3>Beyond the Barrel</h3>
+                        <p class="project-type">Psychological Thriller FPS</p>
+                    </div>
+                </div>
                 <div class="video-container">
-                    <iframe width="560"
-                            height="315"
-                            src="https://www.youtube.com/embed/48aaFeDgFcM"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                            loading="lazy">
-                    </iframe>
+                    <iframe src="https://www.youtube.com/embed/48aaFeDgFcM" title="Beyond the Barrel" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="additional-info">
-                    <p>Solo Project, Nominated for the Greenwich Digital Shark Expo 2025</p>
-                    <p>What this game demonstrates:</p>
-                    <ul>
-                        <li>Narrative Design</li>
-                        <li>Level Design</li>
-                        <li>Mechanics Design</li>
-                        <li>Rapid Development</li>
-                    </ul>
-                    <p>Technologies used: Unreal Engine, C++</p>
-                    <a href="https://drive.proton.me/urls/EJK2DAHK0W#Uhbzu63a36JR" target="_blank" rel="noopener noreferrer">Download</a>
+                    <p>Solo Project. Nominated for the <strong>Greenwich Digital Shark Expo 2025</strong>.</p>
+                    <div class="tags">
+                        <span class="tag">Narrative Design</span>
+                        <span class="tag">Level Design</span>
+                        <span class="tag">Mechanics Design</span>
+                        <span class="tag">Rapid Dev</span>
+                    </div>
+                    <p class="tech-line"><strong>Stack:</strong> Unreal Engine &middot; C++</p>
+                    <a href="https://drive.proton.me/urls/EJK2DAHK0W#Uhbzu63a36JR" class="dl-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Download
+                    </a>
                 </div>
             </div>
 
-            <!-- Potato Bonanza Extravaganza -->
-            <div class="project">
-                <h3>Potato Bonanza Extravaganza</h3>
-                <p>Roguelike, Shoot'em Up</p>
+            <!-- Potato Bonanza -->
+            <div class="project reveal featured">
+                <div class="featured-ribbon">&#9733; NOMINATED</div>
+                <div class="project-header">
+                    <span class="project-number">05</span>
+                    <div>
+                        <h3>Potato Bonanza Extravaganza</h3>
+                        <p class="project-type">Roguelike Shoot'em Up</p>
+                    </div>
+                </div>
                 <div class="video-container">
-                    <iframe width="560"
-                            height="315"
-                            src="https://www.youtube.com/embed/FVkYGXpgj98"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                    </iframe>
+                    <iframe src="https://www.youtube.com/embed/FVkYGXpgj98" title="Potato Bonanza" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="additional-info">
-                    <p>Group Project, Nominated for the Greenwich Digital Shark Expo 2024 (Not Uploaded)</p>
-                    <p>I contributed towards:</p>
-                    <ul>
-                        <li>Coding Character Controller</li>
-                        <li>Coding Camera System</li>
-                        <li>Coding UI</li>
-                        <li>Coding VFX</li>
-                        <li>Implementing Audio</li>
-                        <li>Modelling Environmental Assets</li>
-                        <li>Modelling Character Assets</li>
-                        <li>Designing Particle Systems</li>
-                        <li>Designing Main Menu (Modelling and Coding)</li>
-                    </ul>
-                    <p>Technologies used: Unity, C#, Autodesk Maya</p>
-                    <a href="https://drive.proton.me/urls/R03DSNMMCG#Bwv0sIcEl1Ty" target="_blank" rel="noopener noreferrer">Download</a>
+                    <p>Group Project &mdash; Nominated for Greenwich Digital Shark Expo 2024. I led character controller, camera, UI, VFX, audio, modelling, and main menu.</p>
+                    <div class="tags">
+                        <span class="tag">Character Controller</span>
+                        <span class="tag">Camera System</span>
+                        <span class="tag">UI</span>
+                        <span class="tag">VFX</span>
+                        <span class="tag">Audio</span>
+                        <span class="tag">3D Modelling</span>
+                    </div>
+                    <p class="tech-line"><strong>Stack:</strong> Unity &middot; C# &middot; Autodesk Maya</p>
+                    <a href="https://drive.proton.me/urls/R03DSNMMCG#Bwv0sIcEl1Ty" class="dl-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Download
+                    </a>
                 </div>
             </div>
 
-            <!-- Help! I'm A Circle Being Chased By Evil Squares -->
-            <div class="project">
-                <h3>Help! I'm A Circle Being Chased By Evil Squares</h3>
-                <p>Arcade, High-score Shoot'em Up</p>
+            <!-- Help! I'm a Circle -->
+            <div class="project reveal featured">
+                <div class="featured-ribbon">&#9733; NOMINATED</div>
+                <div class="project-header">
+                    <span class="project-number">06</span>
+                    <div>
+                        <h3>Help! I'm A Circle Being Chased By Evil Squares</h3>
+                        <p class="project-type">Arcade High-Score Shoot'em Up</p>
+                    </div>
+                </div>
                 <div class="video-container">
-                    <iframe width="560"
-                            height="315"
-                            src="https://www.youtube.com/embed/cw9jIyrNHx8"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                    </iframe>
+                    <iframe src="https://www.youtube.com/embed/cw9jIyrNHx8" title="Help Im A Circle" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="additional-info">
-                    <p>Solo Project, Nominated for the <a href="https://www.gre.ac.uk/digital-shark-expo/games/ishan-choudhury" target="_blank">Greenwich Digital Shark Expo 2024</a></p>
-                    <p>What this game demonstrates:</p>
-                    <ul>
-                        <li>OOP Skills</li>
-                        <li>Mechanics Design</li>
-                        <li>Game "Feel" & Polish</li>
-                        <li>Custom State Machine</li>
-                        <li>Rapid Development</li>
-                    </ul>
-                    <p>Technologies used: Unity, C#</p>
-                    <a href="https://drive.proton.me/urls/WKVSFXPSQ8#5Q6ishSYUyKu" target="_blank" rel="noopener noreferrer">Download</a>
+                    <p>Solo Project &mdash; Nominated for the <a href="https://www.gre.ac.uk/digital-shark-expo/games/ishan-choudhury" target="_blank">Greenwich Digital Shark Expo 2024</a>.</p>
+                    <div class="tags">
+                        <span class="tag">OOP</span>
+                        <span class="tag">Mechanics Design</span>
+                        <span class="tag">Game Feel</span>
+                        <span class="tag">State Machine</span>
+                        <span class="tag">Rapid Dev</span>
+                    </div>
+                    <p class="tech-line"><strong>Stack:</strong> Unity &middot; C#</p>
+                    <a href="https://drive.proton.me/urls/WKVSFXPSQ8#5Q6ishSYUyKu" class="dl-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Download
+                    </a>
                 </div>
             </div>
 
-            <!-- Medieval Market Demo -->
-            <div class="project">
-                <h3>Medieval Market Demo</h3>
-                <p>3D Model of a Medieval Market</p>
+            <!-- Medieval Market -->
+            <div class="project reveal">
+                <div class="project-header">
+                    <span class="project-number">07</span>
+                    <div>
+                        <h3>Medieval Market Demo</h3>
+                        <p class="project-type">3D Environment</p>
+                    </div>
+                </div>
                 <div class="video-container">
-                    <iframe width="560"
-                            height="315"
-                            src="https://www.youtube.com/embed/HeJTzSHETXU"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                    </iframe>
+                    <iframe src="https://www.youtube.com/embed/HeJTzSHETXU" title="Medieval Market" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen loading="lazy"></iframe>
                 </div>
                 <div class="additional-info">
-                    <p>Solo Project, Showcasing what would be a densely populated market</p>
-                    <p>What this demonstrates:</p>
-                    <ul>
-                        <li>Optimised Low-Poly Modelling</li>
-                        <li>Texturing and use of PBR Materials</li>
-                        <li>Level/Environmental Design</li>
-                    </ul>
-                    <p>Technologies used: Unity, Autodesk Maya</p>
-                    <a href="https://drive.proton.me/urls/N9XAS4XEPW#vg8mh3Wu2viB" target="_blank" rel="noopener noreferrer">Download</a>
+                    <p>Solo Project &mdash; a densely populated medieval market scene showcasing environment art skills.</p>
+                    <div class="tags">
+                        <span class="tag">Low-Poly Modelling</span>
+                        <span class="tag">PBR Texturing</span>
+                        <span class="tag">Level Design</span>
+                    </div>
+                    <p class="tech-line"><strong>Stack:</strong> Unity &middot; Autodesk Maya</p>
+                    <a href="https://drive.proton.me/urls/N9XAS4XEPW#vg8mh3Wu2viB" class="dl-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Download
+                    </a>
                 </div>
             </div>
+
         </div>
     </section>
-    
-    <section id="contact">
-        <h2>Contact</h2>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="reveal">
+        <div class="section-label">// CONTACT.exe</div>
+        <h2>Get In Touch</h2>
+        <p class="contact-intro">Open to opportunities, collabs, and cool ideas.</p>
         <div class="contact-links">
-            <a href="mailto:ishanchoudhury2005@proton.me" class="contact-link">
-                <i class="fas fa-envelope"></i> Email
+            <a href="mailto:ishanchoudhury2005&#64;proton.me" class="contact-link">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
             </a>
             <a href="https://www.linkedin.com/in/ishan-choudhury/" target="_blank" class="contact-link">
-                <i class="fab fa-linkedin"></i> LinkedIn
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
             </a>
             <a href="https://github.com/ishanchoudhury05" target="_blank" class="contact-link">
-                <i class="fab fa-github"></i> GitHub
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
             </a>
             <a href="https://sketchfab.com/ishanchoudhury" target="_blank" class="contact-link">
-                <i class="fas fa-cube"></i> Sketchfab
+                <i class="fas fa-cube"></i>
+                <span>Sketchfab</span>
             </a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Ishan Choudhury. All Rights Reserved.</p>
+        <div class="footer-inner">
+            <span class="footer-logo">IC</span>
+            <p>&copy; 2025 Ishan Choudhury. All Rights Reserved.</p>
+            <span class="footer-cat">&#128008;</span>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+    // ── Typewriter ──────────────────────────────────────────────────────────
+    (function() {
+        const phrases = [
+            "Game Developer & Programmer",
+            "Unity / Unreal Engine 5",
+            "C# & C++ Enthusiast",
+            "Sound Designer",
+            "3D Artist"
+        ];
+        let pi = 0, ci = 0, deleting = false;
+        const el = document.getElementById('typewriter');
+        function tick() {
+            const phrase = phrases[pi];
+            el.textContent = deleting ? phrase.slice(0, ci--) : phrase.slice(0, ci++);
+            if (!deleting && ci > phrase.length)      { deleting = true; setTimeout(tick, 1400); return; }
+            if (deleting && ci < 0)                    { deleting = false; pi = (pi + 1) % phrases.length; ci = 0; }
+            setTimeout(tick, deleting ? 45 : 80);
+        }
+        tick();
+    })();
+
+    // ── Scroll progress bar ─────────────────────────────────────────────────
+    window.addEventListener('scroll', () => {
+        const prog = document.getElementById('navProgress');
+        const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+        prog.style.width = pct + '%';
+    });
+
+    // ── Navbar shrink on scroll ─────────────────────────────────────────────
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+    });
+
+    // ── Scroll-reveal with guaranteed fallback ──────────────────────────────
+    // Elements start invisible (opacity:0 in CSS). We reveal them when they
+    // enter the viewport, OR after 800ms as a hard fallback so nothing
+    // stays permanently hidden (e.g. when opened via file:// or certain hosts).
+    const allReveal = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+        allReveal.forEach(el => io.observe(el));
+    }
+
+    // Hard fallback — force everything visible after 800 ms
+    setTimeout(() => {
+        allReveal.forEach(el => el.classList.add('visible'));
+    }, 800);
+
+    // ── oneko.js (pixel cat follows cursor) ────────────────────────────────
+    (function oneko() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const nekoEl = document.createElement('div');
+        let nekoPosX = 32, nekoPosY = 32;
+        let mousePosX = 0, mousePosY = 0;
+        let frameCount = 0, idleTime = 0;
+        let idleAnimation = null, idleAnimationFrame = 0;
+        const nekoSpeed = 10;
+
+        const spriteSets = {
+            idle: [[-3,-3]], alert: [[-7,-3]],
+            scratchSelf: [[-5,0],[-6,0],[-7,0]],
+            scratchWallN: [[0,0],[0,-1]], scratchWallS: [[-7,-1],[-6,-2]],
+            scratchWallE: [[-2,-2],[-2,-3]], scratchWallW: [[-4,0],[-4,-1]],
+            tired: [[-3,-2]], sleeping: [[-2,0],[-2,-1]],
+            N: [[-1,-2],[-1,-3]], NE: [[0,-2],[0,-3]],
+            E: [[-3,0],[-3,-1]], SE: [[-5,-1],[-5,-2]],
+            S: [[-6,-3],[-7,-2]], SW: [[-5,-3],[-6,-1]],
+            W: [[-4,-2],[-4,-3]], NW: [[-1,0],[-1,-1]],
+        };
+
+        nekoEl.id = 'oneko';
+        nekoEl.ariaHidden = true;
+        Object.assign(nekoEl.style, {
+            width: '32px', height: '32px', position: 'fixed',
+            pointerEvents: 'none', imageRendering: 'pixelated',
+            backgroundImage: 'url("https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif")',
+            left: (nekoPosX - 16) + 'px', top: (nekoPosY - 16) + 'px',
+            zIndex: '2147483647'
+        });
+        document.body.appendChild(nekoEl);
+
+        document.addEventListener('mousemove', e => { mousePosX = e.clientX; mousePosY = e.clientY; });
+
+        function setSprite(name, frame) {
+            const s = spriteSets[name][frame % spriteSets[name].length];
+            nekoEl.style.backgroundPosition = `${s[0]*32}px ${s[1]*32}px`;
+        }
+        function resetIdleAnimation() { idleAnimation = null; idleAnimationFrame = 0; }
+        function idle() {
+            idleTime++;
+            if (idleTime > 10 && Math.floor(Math.random() * 200) === 0 && !idleAnimation) {
+                let a = ['sleeping','scratchSelf'];
+                if (nekoPosX < 32) a.push('scratchWallW');
+                if (nekoPosY < 32) a.push('scratchWallN');
+                if (nekoPosX > window.innerWidth - 32) a.push('scratchWallE');
+                if (nekoPosY > window.innerHeight - 32) a.push('scratchWallS');
+                idleAnimation = a[Math.floor(Math.random() * a.length)];
+            }
+            switch (idleAnimation) {
+                case 'sleeping':
+                    if (idleAnimationFrame < 8) { setSprite('tired', 0); break; }
+                    setSprite('sleeping', Math.floor(idleAnimationFrame / 4));
+                    if (idleAnimationFrame > 192) resetIdleAnimation();
+                    break;
+                case 'scratchWallN': case 'scratchWallS': case 'scratchWallE':
+                case 'scratchWallW': case 'scratchSelf':
+                    setSprite(idleAnimation, idleAnimationFrame);
+                    if (idleAnimationFrame > 9) resetIdleAnimation();
+                    break;
+                default: setSprite('idle', 0); return;
+            }
+            idleAnimationFrame++;
+        }
+        function frame() {
+            frameCount++;
+            const dX = nekoPosX - mousePosX, dY = nekoPosY - mousePosY;
+            const dist = Math.sqrt(dX**2 + dY**2);
+            if (dist < nekoSpeed || dist < 48) { idle(); return; }
+            idleAnimation = null; idleAnimationFrame = 0;
+            if (idleTime > 1) {
+                setSprite('alert', 0);
+                idleTime = Math.min(idleTime, 7) - 1;
+                return;
+            }
+            let dir = '';
+            dir += dY / dist > 0.5 ? 'N' : '';
+            dir += dY / dist < -0.5 ? 'S' : '';
+            dir += dX / dist > 0.5 ? 'W' : '';
+            dir += dX / dist < -0.5 ? 'E' : '';
+            setSprite(dir, frameCount);
+            nekoPosX -= (dX / dist) * nekoSpeed;
+            nekoPosY -= (dY / dist) * nekoSpeed;
+            nekoPosX = Math.min(Math.max(16, nekoPosX), window.innerWidth - 16);
+            nekoPosY = Math.min(Math.max(16, nekoPosY), window.innerHeight - 16);
+            nekoEl.style.left = (nekoPosX - 16) + 'px';
+            nekoEl.style.top  = (nekoPosY - 16) + 'px';
+        }
+        let lastFrame;
+        function loop(ts) {
+            if (!nekoEl.isConnected) return;
+            if (!lastFrame) lastFrame = ts;
+            if (ts - lastFrame > 100) { lastFrame = ts; frame(); }
+            requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
+    })();
+    </script>
 </body>
 </html>

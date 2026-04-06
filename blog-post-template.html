@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  BLOG POST TEMPLATE                                              ║
+  ║  ──────────────────────────────────────────────────────────────  ║
+  ║  HOW TO USE:                                                     ║
+  ║  1. Copy this file into the  posts/  folder                      ║
+  ║     e.g.  posts/my-first-devlog.html                             ║
+  ║  2. Fill in every  <!-- EDIT: ...  section below                 ║
+  ║  3. Register the post in  blog.html  →  POSTS  array             ║
+  ║     { slug: "my-first-devlog", title: "...", date: "...",        ║
+  ║       tag: "Devlog", excerpt: "..." }                            ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- EDIT: page title — shown in browser tab -->
+    <title>Post Title — Ishan Choudhury</title>
+
+    <link rel="icon" type="image/x-icon" href="../images/icon.ico">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../inner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="noise"     aria-hidden="true"></div>
+
+    <!-- ── Nav ── -->
+    <nav id="navbar">
+        <a href="../index.html" class="nav-logo">IC</a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">Full Bio</a></li>
+            <li><a href="../blog.html" class="active">Blog</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <div class="nav-progress" id="navProgress"></div>
+    </nav>
+
+    <!-- ── Post content ── -->
+    <div class="page-content" style="padding-top: 110px;">
+
+        <a href="../blog.html" class="back-link">Back to Blog</a>
+
+        <!-- Post header -->
+        <div class="post-header">
+
+            <!-- EDIT: meta line -->
+            <div class="blog-meta">
+                <span>Month Year</span>              <!-- e.g. March 2025 -->
+                <span class="blog-tag">Devlog</span> <!-- e.g. Devlog | Design | Industry | Personal -->
+            </div>
+
+            <!-- EDIT: post title -->
+            <h1>Your Post Title Goes Here</h1>
+
+            <!-- EDIT: optional one-liner subtitle -->
+            <p style="color: var(--cream-dim); font-size: 1rem; line-height: 1.7;">
+                A short subtitle or intro sentence that summarises what this post is about.
+            </p>
+
+            <!-- EDIT: optional cover image — delete this block if not used -->
+            <!--
+            <img src="../images/posts/your-cover-image.jpg"
+                 alt="Descriptive alt text"
+                 class="post-cover">
+            -->
+
+        </div>
+
+        <!-- ── Post body ────────────────────────────────────────────
+             Write your post inside .post-body.
+             Available elements:
+               <h2>Section heading</h2>
+               <h3>Sub-heading</h3>
+               <p>Paragraph text</p>
+               <ul><li>Bullet</li></ul>
+               <ol><li>Numbered</li></ol>
+               <blockquote>Pull quote or highlighted idea</blockquote>
+               <code>inline code</code>
+               <pre><code>multi-line code block</code></pre>
+               <img src="..." alt="...">
+               <hr>   (horizontal divider)
+               <a href="...">link text</a>
+               <strong>bold</strong>  <em>italic</em>
+        ─────────────────────────────────────────────────────────── -->
+        <div class="post-body">
+
+            <!-- EDIT: Replace everything below with your actual content -->
+
+            <p>
+                Start your post here. This is your opening paragraph. It should hook the reader
+                and give them a reason to keep reading. What are you going to cover? Why does it matter?
+            </p>
+
+            <h2>First Section</h2>
+
+            <p>
+                Introduce the first major point or topic. Keep paragraphs focused — one idea per paragraph
+                tends to read better than dense walls of text.
+            </p>
+
+            <p>
+                You can add a second paragraph here expanding on the idea.
+            </p>
+
+            <h3>A Sub-section</h3>
+
+            <p>
+                Use sub-headings when you want to break a section down further without starting a whole
+                new major topic.
+            </p>
+
+            <ul>
+                <li>Bullet point one</li>
+                <li>Bullet point two</li>
+                <li>Bullet point three</li>
+            </ul>
+
+            <h2>Second Section</h2>
+
+            <blockquote>
+                Use a blockquote for a key insight, a lesson learned, or something you want to stand out
+                from the rest of the text.
+            </blockquote>
+
+            <p>
+                Continue with more content here. Add images, code snippets, or whatever is relevant to
+                the post's topic.
+            </p>
+
+            <!-- Example code block -->
+            <!--
+            <pre><code>// Example code
+void Start() {
+    Debug.Log("Hello, World!");
+}</code></pre>
+            -->
+
+            <!-- Example image -->
+            <!--
+            <img src="../images/posts/screenshot.png" alt="Description of screenshot">
+            -->
+
+            <h2>Conclusion</h2>
+
+            <p>
+                Wrap up the post. Summarise what you covered, share your key takeaway, or point the
+                reader toward what's coming next.
+            </p>
+
+            <hr>
+
+            <p>
+                Thanks for reading! If you have questions or thoughts, feel free to
+                <a href="../index.html#contact">reach out</a>.
+            </p>
+
+        </div>
+        <!-- end .post-body -->
+
+        <!-- Back to blog -->
+        <div style="margin-top: 60px; padding-top: 32px; border-top: 1px solid rgba(201,147,58,0.15);">
+            <a href="../blog.html" class="back-link">Back to Blog</a>
+        </div>
+
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-logo">IC</span>
+            <p>&copy; 2025 Ishan Choudhury. All Rights Reserved.</p>
+            <span class="footer-cat">🐈</span>
+        </div>
+    </footer>
+
+    <script>
+    window.addEventListener('scroll', () => {
+        const p = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+        document.getElementById('navProgress').style.width = p + '%';
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+    });
+    (function oneko() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const el = document.createElement('div');
+        let nx=32,ny=32,mx=0,my=0,fc=0,it=0,ia=null,iaf=0;
+        const spd=10, ss={idle:[[-3,-3]],alert:[[-7,-3]],scratchSelf:[[-5,0],[-6,0],[-7,0]],
+            scratchWallN:[[0,0],[0,-1]],scratchWallS:[[-7,-1],[-6,-2]],scratchWallE:[[-2,-2],[-2,-3]],scratchWallW:[[-4,0],[-4,-1]],
+            tired:[[-3,-2]],sleeping:[[-2,0],[-2,-1]],N:[[-1,-2],[-1,-3]],NE:[[0,-2],[0,-3]],
+            E:[[-3,0],[-3,-1]],SE:[[-5,-1],[-5,-2]],S:[[-6,-3],[-7,-2]],SW:[[-5,-3],[-6,-1]],W:[[-4,-2],[-4,-3]],NW:[[-1,0],[-1,-1]]};
+        Object.assign(el.style,{width:'32px',height:'32px',position:'fixed',pointerEvents:'none',imageRendering:'pixelated',
+            backgroundImage:'url("https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif")',
+            left:(nx-16)+'px',top:(ny-16)+'px',zIndex:'2147483647'});
+        document.body.appendChild(el);
+        document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+        function sp(n,f){const s=ss[n][f%ss[n].length];el.style.backgroundPosition=`${s[0]*32}px ${s[1]*32}px`;}
+        function ri(){ia=null;iaf=0;}
+        function idle(){it++;if(it>10&&Math.floor(Math.random()*200)===0&&!ia){let a=['sleeping','scratchSelf'];
+            if(nx<32)a.push('scratchWallW');if(ny<32)a.push('scratchWallN');
+            if(nx>window.innerWidth-32)a.push('scratchWallE');if(ny>window.innerHeight-32)a.push('scratchWallS');
+            ia=a[Math.floor(Math.random()*a.length)];}
+            switch(ia){case'sleeping':if(iaf<8){sp('tired',0);break;}sp('sleeping',Math.floor(iaf/4));if(iaf>192)ri();break;
+            case'scratchWallN':case'scratchWallS':case'scratchWallE':case'scratchWallW':case'scratchSelf':
+                sp(ia,iaf);if(iaf>9)ri();break;default:sp('idle',0);return;}iaf++;}
+        function frame(){fc++;const dx=nx-mx,dy=ny-my,d=Math.sqrt(dx**2+dy**2);
+            if(d<spd||d<48){idle();return;}ia=null;iaf=0;
+            if(it>1){sp('alert',0);it=Math.min(it,7)-1;return;}
+            let dir='';dir+=dy/d>0.5?'N':'';dir+=dy/d<-0.5?'S':'';dir+=dx/d>0.5?'W':'';dir+=dx/d<-0.5?'E':'';
+            sp(dir,fc);nx-=(dx/d)*spd;ny-=(dy/d)*spd;
+            nx=Math.min(Math.max(16,nx),window.innerWidth-16);ny=Math.min(Math.max(16,ny),window.innerHeight-16);
+            el.style.left=(nx-16)+'px';el.style.top=(ny-16)+'px';}
+        let lf;function loop(ts){if(!el.isConnected)return;if(!lf)lf=ts;if(ts-lf>100){lf=ts;frame();}requestAnimationFrame(loop);}
+        requestAnimationFrame(loop);
+    })();
+    </script>
+</body>
+</html>
