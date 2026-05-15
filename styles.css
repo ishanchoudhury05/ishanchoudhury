@@ -506,22 +506,59 @@ h2::after {
 }
 .tech-line strong { color: var(--gold); font-weight: normal; }
 
-.dl-btn {
+/* ── Project action row ─────────────────────────────────────── */
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+/* Shared button styling */
+.dl-btn,
+.gh-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
+
     align-self: flex-start;
+
+    min-width: 140px;
+    height: 40px;
+
     padding: 8px 20px;
+
     border: 1px solid var(--gold);
     border-radius: var(--radius);
+
+    background: transparent;
+
     color: var(--gold) !important;
+
     font-size: 0.82rem;
-    text-decoration: none !important;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+    text-decoration: none !important;
+
     transition: all var(--transition);
-    background: transparent;
+
     margin-top: 4px;
+}
+
+/* Shared hover effect */
+.dl-btn:hover,
+.gh-btn:hover {
+    background: var(--gold);
+    color: var(--bg) !important;
+    box-shadow: 0 0 16px var(--gold-glow);
+}
+
+/* Optional: slightly larger icon alignment */
+.dl-btn i,
+.gh-btn i {
+    font-size: 0.95rem;
+    line-height: 1;
 }
 .dl-btn:hover {
     background: var(--gold);
@@ -706,12 +743,17 @@ footer p {
         padding: 20px;
     }
 
-    /* TAGS + BUTTON */
+/* TAGS + BUTTON */
     .tags {
         flex-wrap: wrap;
     }
 
-    .dl-btn {
+    .project-actions {
+        width: 100%;
+    }
+
+    .dl-btn,
+    .gh-btn {
         width: 100%;
         justify-content: center;
     }
